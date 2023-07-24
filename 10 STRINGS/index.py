@@ -1,0 +1,74 @@
+# PYTHON STRINGS
+
+# STRINGS
+# STRINGS IN PYTHON ARE SURROUNDED BY EITHER SINGLE QUOTES, OR DOUBLE QUOTES.
+# 'HELLO' IS THE SAME AS "HELLO".
+# YOU CAN DISPLAY A STRING LITERAL WITH THE print() FUNCTION:
+print("Hello")
+print('Hello')
+
+# ASSIGN STRING TO A VARIABLE
+# ASSIGNING A STRING TO A VARIABLE IS DONE WITH THE VARIABLE NAME FOLLOWED BY AN EQUAL SIGN AND THE STRING:
+a = "Hello"
+print(a)
+
+# MULTILINE STRINGS
+# YOU CAN ASSIGN A MULTILINE STRING TO A VARIABLE BY USING THREE QUOTES:
+a = """Lorem ipsum dolor sit amet, 
+consectetur adipiscing elit, 
+sed do eiusmod tempor incididunt 
+ut labore et dolore magna aliqua."""
+print(a)
+
+# OR THREE SINGLE QUOTES:
+a = '''Lorem ipsum dolor sit amet,
+consectetur adipiscing elit,
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua.'''
+print(a)
+# NOTE: IN THE RESULT, THE LINE BREAKS ARE INSERTED AT THE SAME POSITION AS IN THE CODE.
+
+# STRINGS ARE ARRAYS
+""" LIKE MANY OTHER POPULAR PROGRAMMING LANGUAGES, STRINGS IN PYTHON ARE ARRAYS OF BYTES REPRESENTING UNICODE 
+CHARACTERS. """
+# HOWEVER, PYTHON DOES NOT HAVE A CHARACTER DATA TYPE, A SINGLE CHARACTER IS SIMPLY A STRING WITH A LENGTH OF 1.
+# SQUARE BRACKETS CAN BE USED TO ACCESS ELEMENTS OF THE STRING.
+# GET THE CHARACTER AT POSITION 1 (REMEMBER THAT THE FIRST CHARACTER HAS THE POSITION 0):
+a = "Hello, World!"
+print(a[1])
+
+# LOOPING THROUGH A STRING
+# SINCE STRINGS ARE ARRAYS, WE CAN LOOP THROUGH THE CHARACTERS IN A STRING, WITH A FOR LOOP.
+# PRINT ALL CHARACTERS IN THE STRING, ONE BY ONE:
+for x in "banana":
+    print(x)
+
+# STRING LENGTH
+# TO GET THE LENGTH OF A STRING, USE THE len() FUNCTION.
+# THE len() FUNCTION RETURNS THE LENGTH OF A STRING:
+a = "Hello, World!"
+print(len(a))
+
+# CHECK STRING
+# TO CHECK IF A CERTAIN PHRASE OR CHARACTER IS PRESENT IN A STRING, WE CAN USE THE KEYWORD in.
+# CHECK IF "free" IS PRESENT IN THE FOLLOWING TEXT:
+txt = "The best things in life are free!"
+print("free" in txt)
+
+# USE IT IN AN if STATEMENT:
+# PRINT ONLY IF "free" IS PRESENT:
+txt = "The best things in life are free!"
+if "free" in txt:
+    print("Yes, 'free' is present.")
+
+# CHECK IF NOT
+# TO CHECK IF A CERTAIN PHRASE OR CHARACTER IS NOT PRESENT IN A STRING, WE CAN USE THE KEYWORD not in.
+# CHECK IF "expensive" IS NOT PRESENT IN THE FOLLOWING TEXT:
+txt = "The best things in life are free!"
+print("expensive" not in txt)
+
+# USE IT IN AN if STATEMENT:
+# PRINT ONLY IF "expensive" IS NOT PRESENT:
+txt = "The best things in life are free!"
+if "expensive" not in txt:
+    print("No, 'expensive' is NOT present.")
