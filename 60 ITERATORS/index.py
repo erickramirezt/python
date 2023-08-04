@@ -1,0 +1,119 @@
+# PYTHON ITERATORS
+
+# PYTHON ITERATORS
+# AN ITERATOR IS AN OBJECT THAT CONTAINS A COUNTABLE NUMBER OF VALUES.
+# AN ITERATOR IS AN OBJECT THAT CAN BE ITERATED UPON, MEANING THAT YOU CAN TRAVERSE THROUGH
+# ALL THE VALUES.
+# TECHNICALLY, IN PYTHON, AN ITERATOR IS AN OBJECT WHICH IMPLEMENTS THE ITERATOR PROTOCOL,
+# WHICH CONSISTS OF THE METHODS __ITER__() AND __NEXT__().
+
+# ITERATORS VS ITERABLES
+# LISTS, TUPLES, DICTIONARIES, AND SETS ARE ALL ITERABLE OBJECTS. THEY ARE ITERABLE
+# CONTAINRERS WHICH YOU CAN GET AN ITERATOR FROM.
+# ALL THESE OBJECTS HAVE A ITER() METHOD WHICH IS USED TO GET AN ITERATOR:
+
+# EXAMPLE
+# RETURN AN ITERATOR FROM A TUPLE, AND PRINT EACH VALUE:
+mytuple = ("apple", "banana", "cherry")
+myit = iter(mytuple)
+print(next(myit))
+print(next(myit))
+print(next(myit))
+
+# EVEN STRINGS ARE ITERABLE OBJECTS, AND CAN RETURN AN ITERATOR:
+
+# EXAMPLE
+# STRINGS ARE ALSO ITERABLE OBJECTS, CONTAINING A SEQUENCE OF CHARACTERS:
+mystr = "banana"
+myit = iter(mystr)
+print(next(myit))
+print(next(myit))
+print(next(myit))
+print(next(myit))
+print(next(myit))
+print(next(myit))
+
+# LOOPING THROUGH AN ITERATOR
+# WE CAN ALSO USE A FOR LOOP TO ITERATE THROUGH AN ITERATOR OBJECT:
+
+# EXAMPLE
+# ITERATE THE VALUES OF A TUPLE:
+mytuple = ("apple", "banana", "cherry")
+for x in mytuple:
+    print(x)
+
+# EXAMPLE
+# ITERATE THE CHARACTERS OF A STRING:
+mystr = "banana"
+for x in mystr:
+    print(x)
+
+# THE FOR LOOP ACTUALLY CREATES AN ITERATOR OBJECT AND EXECUTES THE NEXT() METHOD FOR EACH
+# LOOP.
+
+# CREATE AN ITERATOR
+# TO CREATE AN OBJECT/CLASS AS AN ITERATOR YOU HAVE TO IMPLEMENT THE METHODS __ITER__() AND
+# __NEXT__() TO YOUR OBJECT.
+# AS YOU HAVE LEARNED IN THE PYTHON CLASSES/OBJECTS CHAPTER, ALL CLASSES HAVE A FUNCTION
+# CALLED __INIT__(), WHICH ALLOWS YOU TO DO SOME INITIALIZATION FOR THE CLASS OBJECT.
+# THE __ITER__() METHOD ACTS SIMILAR, YOU CAN DO OPERATIONS (INITIALIZATION ETC.), BUT MUST
+# ALWAYS RETURN THE ITERATOR OBJECT ITSELF.
+# THE __NEXT__() METHOD ALSO ALLOWS YOU TO DO OPERATIONS, AND MUST RETURN THE NEXT ITEM IN
+# THE SEQUENCE.
+
+# EXAMPLE
+# CREATE AN ITERATOR THAT RETURNS NUMBERS, STARTING WITH 1, AND EACH SEQUENCE WILL INCREASE
+# BY ONE (RETURNING 1,2,3,4,5 ETC.):
+
+
+class MyNumbers:
+    def __iter__(self):
+        self.a = 1
+        return self
+
+    def __next__(self):
+        x = self.a
+        self.a += 1
+        return x
+
+
+myclass = MyNumbers()
+myiter = iter(myclass)
+
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+
+# STOP ITERATION
+# THE EXAMPLE ABOVE WOULD CONTINUE FOREVER IF YOU HAD ENOUGH NEXT() STATEMENTS, OR IF IT
+# WAS USED IN A FOR LOOP.
+# TO PREVENT THE ITERATOR TO GO ON FOREVER, WE CAN USE THE STOPITERATION STATEMENT.
+# IN THE __NEXT__() METHOD, WE CAN ADD A TERMINATION CONDITION TO RAISE AN ERROR IF THE
+# ITERATION IS DONE A SPECIFIED NUMBER OF TIMES:
+
+# EXAMPLE
+# STOP AFTER 20 ITERATIONS:
+
+
+class MyNumbers:
+    def __iter__(self):
+        self.a = 1
+        return self
+
+    def __next__(self):
+        if self.a <= 20:
+            x = self.a
+            self.a += 1
+            return x
+        else:
+            raise StopIteration
+
+
+myclass = MyNumbers()
+myiter = iter(myclass)
+
+for x in myiter:
+    print(x)
