@@ -1,0 +1,31 @@
+# PYTHON DELETE FILE
+
+# DELETE A FILE
+# TO DELETE A FILE, YOU MUST IMPORT THE OS MODULE, AND RUN ITS os.remove() FUNCTION:
+
+# EXAMPLE
+# REMOVE THE FILE "DEMO.TXT":
+import os
+os.remove("demofile.txt")
+
+# CHECK IF FILE EXISTS
+# TO AVOID GETTING AN ERROR, YOU MIGHT WANT TO CHECK IF THE FILE EXISTS BEFORE YOU TRY TO
+# DELETE IT:
+
+# EXAMPLE
+# CHECK IF FILE EXISTS, THEN DELETE IT:
+import os
+if os.path.exists("demofile.txt"):
+    os.remove("demofile.txt")
+else:
+    print("The file does not exist")
+
+# DELETE FOLDER
+# TO DELETE AN ENTIRE FOLDER, USE THE os.rmdir() METHOD:
+
+# EXAMPLE
+# REMOVE THE FOLDER "MYFOLDER":
+import os
+os.rmdir("myfolder")
+
+# NOTE: YOU CAN ONLY REMOVE EMPTY FOLDERS.
